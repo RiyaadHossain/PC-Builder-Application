@@ -31,4 +31,7 @@ body {
     background-color: cornflowerblue;
     color: white;
 }
+.none{
+    display: none;
+}
 /* --------------------End---------------------- */

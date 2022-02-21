@@ -1,6 +1,13 @@
 /* $$$$$$ Total Net Price $$$$$$ */
 const netPrice = document.getElementById("total-price");
 
+/* 
+* ! Promo Code message
+*/
+const successMsg = document.getElementById("success-text")
+const failedMsg = document.getElementById("failed-text")
+
+
 onClick("eightGB", "memory-cost", 00);
 onClick("sixteenGB", "memory-cost", 300);
 onClick("ssd1", "storage-cost", 00);
@@ -34,3 +41,20 @@ function updateBalance(input, price) {
 
   netPrice.innerText = totalCost;
 }
+
+
+/* =========== Promo Code Varification =========== */
+document.getElementById('apply-btn').addEventListener('click', () => {
+    const promo = document.getElementById("promo-input");
+    if (promo.value == 'pHero') {
+        const discount = parseInt(netPrice.innerText) * 0.2
+        netPrice.innerText = parseFloat(netPrice.innerText) - discount;
+        successMsg.style.display = 'block'
+        failedMsg.style.display = 'none'
+        promo.value = ''
+    } else {
+        alert("Your Promo Code is incorrect :(");
+        failedMsg.style.display = 'block'
+        successMsg.style.display = 'none'
+    }
+})
